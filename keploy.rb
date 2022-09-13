@@ -8,9 +8,10 @@ class Keploy < Formula
   sha256 "9593b463a5c6578626c6765e6a442c303b67c4cfe21db6a0e787d9bdf11b0ef7"
   license "Apache-2.0"
 
-
+  depends_on "go" => :build
 
   def install
-        bin.install "keploy"
+    system "go", "build", "-o" , Dir["cmd/server/*"]   
+    bin.install Dir["cmd/server/*"]
   end
 end
