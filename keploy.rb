@@ -11,7 +11,7 @@ class Keploy < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-o" , Dir["cmd/server/*"]   
-    bin.install Dir["cmd/server/*"]
+    system "go", "build", "-o" , Dir["cmd/server/main"]   
+    bin.install Dir["cmd/server/main"]
   end
 end
