@@ -12,6 +12,7 @@ class Keploy < Formula
 
   def install
     prefix.install Dir["cmd/server/*"]
+    ENV["GOPATH"] = buildpath/"cmd/server"
     Language::Go.stage_deps resources, buildpath/"cmd/server" 
     system "go", "build", "-o" , "keploy"   
     bin.install "keploy"
