@@ -11,7 +11,8 @@ class Keploy < Formula
   depends_on "go" => :build
 
   def install
-    prefix.install Dir["cmd/server/*"] 
+    prefix.install Dir["cmd/server/*"]
+    Language::Go.stage_deps resources, buildpath/"cmd/server" 
     system "go", "build", "-o" , "keploy"   
     bin.install "keploy"
   end
