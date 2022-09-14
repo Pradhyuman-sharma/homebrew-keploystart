@@ -2,7 +2,6 @@
 #                https://rubydoc.brew.sh/Formula
 # PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 require "language/go"
-require "git"
 class Keploy < Formula
   desc "No code API testing platform. Create unit tests and data mocks from API calls. "
   homepage "https://keploy.io"
@@ -11,18 +10,12 @@ class Keploy < Formula
   license "Apache-2.0"
 
   depends_on "go" => :build
-  depends_on "gatsby" => :build
   def install
     ENV["GOPATH"] = buildpath/"cmd/server"
     Language::Go.stage_deps resources, buildpath/"cmd/server" 
     Dir.chdir("cmd/server") do
         system "go", "build", "-o" , "keploy"   
         bin.install "keploy"
-    end
-    Git.clone('https://github.com/keploy/ui','clone.git') 
-    Dir.chdir("/ui") do
-        system "npm","install"
-        system "gatsby", "build"
     end
   end
 end
