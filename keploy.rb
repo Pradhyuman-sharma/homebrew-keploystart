@@ -11,7 +11,7 @@ class Keploy < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = "keploy/cmd/server"
+    ENV["GOPATH"] = "keploy-1.0.0/cmd/server"
     system "go", "build", "-o" , "keploy"   
     bin.install "keploy"
   end
