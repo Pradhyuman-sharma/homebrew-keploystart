@@ -12,7 +12,6 @@ class Keploy < Formula
   depends_on "go" => :build
 
   def install
-    prefix.install Dir["cmd/server/*"]
     ENV["GOPATH"] = buildpath/"cmd/server"
     Language::Go.stage_deps resources, buildpath/"cmd/server" 
     Dir.chdir("cmd/server") do
