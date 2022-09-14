@@ -1,6 +1,7 @@
 # Documentation: https://docs.brew.sh/Formula-Cookbook
 #                https://rubydoc.brew.sh/Formula
 # PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
+require "language/go"
 class Keploy < Formula
   desc "No code API testing platform. Create unit tests and data mocks from API calls. "
   homepage "https://keploy.io"
